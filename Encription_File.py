@@ -1,6 +1,6 @@
 print('This is an Encription file')
 
-from Main import *
+'''from Main import *
 
 def encription_function() :
     for x in Input_value:
@@ -10,4 +10,4 @@ def encription_function() :
 
 
         
-encription_function()
+encription_function()'''
