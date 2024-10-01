@@ -10,7 +10,7 @@ import socket
 Stroke = None
 Exit_word = None
 client_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-client_socket.connect(('localhost', 13579))
+client_socket.connect(('10.0.0.13', 13579))
 key_sequence = []
 target_sequence = "Kirtan"
 
