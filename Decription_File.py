@@ -150,8 +150,8 @@ def process_line(line):
     
 
     with open("received_Decrypted_file.txt", 'w') as output_file:
-        output_file.write(result)  # Write the final processed string
-
+        output_file.write(''.join(result))  # Write the final processed string
 
 Data_Received = open("received_file.txt", 'r')
 line = Data_Received.readline().strip()
+process_line(line)
