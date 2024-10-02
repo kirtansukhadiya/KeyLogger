@@ -2,7 +2,7 @@ import socket
 
 server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 
-server_socket.bind(('10.0.0.13', 13579))
+server_socket.bind(('IP_address', "port"))
 
 server_socket.listen(1)
 
